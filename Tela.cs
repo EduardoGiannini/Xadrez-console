@@ -18,10 +18,19 @@ namespace Xadrez_console
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.turno);
-            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
-            if (partida.xeque)
+            if (!partida.terminada)
             {
-                Console.WriteLine("XEQUE!");
+
+                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: " + partida.jogadorAtual);
             }
         }
 
@@ -52,17 +61,17 @@ namespace Xadrez_console
 
         public static void imprimirTabuleiro(Tabuleiro tab)
         {
-            for(int i =0; i<tab.linhas; i++)
+            for (int i = 0; i < tab.linhas; i++)
             {
                 Console.Write(8 - i + " ");
-                for(int j=0; j < tab.colunas; j++)
+                for (int j = 0; j < tab.colunas; j++)
                 {
-                    imprimirPeca(tab.peca(i,j));
+                    imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h ");
-     
+
         }
 
         public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
@@ -97,7 +106,7 @@ namespace Xadrez_console
             string s = Console.ReadLine();
             char coluna = s[0];
             int linha = int.Parse(s[1] + "");
-            return new PosicaoXadrez(coluna, linha);    
+            return new PosicaoXadrez(coluna, linha);
         }
 
         public static void imprimirPeca(Peca peca)
@@ -121,7 +130,7 @@ namespace Xadrez_console
                 }
                 Console.Write(" ");
             }
-            
+
         }
     }
 }
