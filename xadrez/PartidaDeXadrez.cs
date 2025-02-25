@@ -12,6 +12,7 @@ namespace xadrez
         public int turno { get; private set; }
         public Cor jogadorAtual { get; private set; }
         public bool terminada { get; private set; }
+
         private HashSet<Peca> pecas;
         private HashSet<Peca> capturadas; 
         public bool xeque {  get; private set; }
@@ -67,7 +68,7 @@ namespace xadrez
                 if(origem.coluna != destino.coluna && pecaCapturada == null)
                 {
                     Posicao posP;
-                    if(p.Cor == Cor.Branca)
+                    if(p.cor == Cor.Branca)
                     {
                         posP = new Posicao(destino.linha + 1, destino.coluna);
                     }
@@ -121,7 +122,7 @@ namespace xadrez
                 {
                     Peca peao = tab.retirarPeca(destino);
                     Posicao posP;
-                    if(p.Cor == Cor.Branca)
+                    if(p.cor == Cor.Branca)
                     {
                         posP = new Posicao(3, destino.coluna);
                     }
@@ -149,11 +150,11 @@ namespace xadrez
             //#jogadaespecial promocao
             if(p is Peao)
             {
-                if(p.Cor == Cor.Branca && destino.linha == 0 || (p.Cor == Cor.Preta && destino.linha == 7))
+                if(p.cor == Cor.Branca && destino.linha == 0 || (p.cor == Cor.Preta && destino.linha == 7))
                 {
                     p = tab.retirarPeca(destino);
                     pecas.Remove(p);
-                    Peca dama = new Dama(tab, p.Cor);
+                    Peca dama = new Dama(tab, p.cor);
                     tab.colocarPeca(dama, destino);
                     pecas.Add(dama);
                 }
@@ -196,7 +197,7 @@ namespace xadrez
             {
                 throw new TabuleiroExeption("Nao existe peça na posisão de origem escolhida!");
             }
-            if(jogadorAtual != tab.peca(pos).Cor)
+            if(jogadorAtual != tab.peca(pos).cor)
             {
                 throw new TabuleiroExeption("A peça de origem escolhida não é sua!");
             }
@@ -231,7 +232,7 @@ namespace xadrez
             HashSet<Peca> aux = new HashSet<Peca>();
             foreach (Peca x in capturadas)
             {
-                if(x.Cor == cor)
+                if(x.cor == cor)
                 {
                     aux.Add(x);
                 }
@@ -244,7 +245,7 @@ namespace xadrez
             HashSet<Peca> aux = new HashSet<Peca>();
             foreach (Peca x in pecas)
             {
-                if (x.Cor == cor)
+                if (x.cor == cor)
                 {
                     aux.Add(x);
                 }
@@ -288,7 +289,7 @@ namespace xadrez
             foreach (Peca x in pecasEmJogo(adversaria(cor)))
             {
                 bool[,] mat = x.movimentoPossiveis();
-                if (mat[R.Posicao.linha, R.Posicao.coluna])
+                if (mat[R.posicao.linha, R.posicao.coluna])
                 {
                     return true;
                 }
@@ -311,7 +312,7 @@ namespace xadrez
                     {
                         if (mat[i, j])
                         {
-                            Posicao origem = x.Posicao;
+                            Posicao origem = x.posicao;
                             Posicao destino = new Posicao(i,j);
                             Peca pecaCapturada = executaMovimento(origem ,destino);
                             bool testeXeque = estaEmXeque(cor);

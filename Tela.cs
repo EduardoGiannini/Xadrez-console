@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using tabuleiro;
 using xadrez;
 
@@ -117,7 +114,7 @@ namespace Xadrez_console
             }
             else
             {
-                if (peca.Cor == Cor.Branca)
+                if (peca.cor == Cor.Branca)
                 {
                     Console.Write(peca);
                 }

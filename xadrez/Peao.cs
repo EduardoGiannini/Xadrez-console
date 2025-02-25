@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.Design;
-using tabuleiro;
+﻿using tabuleiro;
 
 namespace xadrez
 {
@@ -20,7 +18,7 @@ namespace xadrez
         private bool existeInimigo(Posicao pos)
         {
             Peca p = tab.peca(pos);
-            return p != null && p.Cor != Cor;
+            return p != null && p.cor != cor;
         }
 
         private bool livre(Posicao pos)
@@ -35,78 +33,77 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-
-            if (Cor == Cor.Branca)
+            if (cor == Cor.Branca)
             {
-                pos.definirValores(Posicao.linha - 1, Posicao.coluna);
+                pos.definirValores(posicao.linha - 1, posicao.coluna);
                 if (tab.posicaoValida(pos) && livre(pos))
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
-            }
-            pos.definirValores(Posicao.linha - 2, Posicao.coluna);
-            Posicao p2 = new Posicao(Posicao.linha - 1, Posicao.coluna);
-            if (tab.posicaoValida(p2) && livre(p2) && tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
-            {
-                mat[pos.linha, pos.coluna] = true;
-            }
-            pos.definirValores(Posicao.linha - 1, Posicao.coluna - 1);
-            if (tab.posicaoValida(pos) && existeInimigo(pos))
-            {
-                mat[pos.linha, pos.coluna] = true;
-            }
-            pos.definirValores(Posicao.linha - 1, Posicao.coluna + 1);
-            if (tab.posicaoValida(pos) && existeInimigo(pos))
-            {
-                mat[pos.linha, pos.coluna] = true;
-            }
-
-            //#jogadaespecial en passant
-            if (Posicao.linha == 3)
-            {
-                Posicao esquerda = new Posicao(Posicao.linha, Posicao.coluna - 1);
-                if (tab.posicaoValida(esquerda) && existeInimigo(esquerda) && tab.peca(esquerda) == partida.vulneravelEnPassant)
-                {
-                    mat[esquerda.linha - 1, esquerda.coluna] = true;
-                }
-                Posicao direita = new Posicao(Posicao.linha, Posicao.coluna + 1);
-                if (tab.posicaoValida(direita) && existeInimigo(direita) && tab.peca(direita) == partida.vulneravelEnPassant)
-                {
-                    mat[direita.linha - 1, direita.coluna] = true;
-                }
-            }
-            else
-            {
-                pos.definirValores(Posicao.linha + 1, Posicao.coluna);
-                if (tab.posicaoValida(pos) && livre(pos))
-                {
-                    mat[pos.linha, pos.coluna] = true;
-                }
-                pos.definirValores(Posicao.linha + 2, Posicao.coluna);
-                Posicao p2 = new Posicao(Posicao.linha + 1, Posicao.coluna);
+                pos.definirValores(posicao.linha - 2, posicao.coluna);
+                Posicao p2 = new Posicao(posicao.linha - 1, posicao.coluna);
                 if (tab.posicaoValida(p2) && livre(p2) && tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
-                pos.definirValores(Posicao.linha + 1, Posicao.coluna - 1);
+                pos.definirValores(posicao.linha - 1, posicao.coluna - 1);
                 if (tab.posicaoValida(pos) && existeInimigo(pos))
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
-                pos.definirValores(Posicao.linha + 1, Posicao.coluna + 1);
+                pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
+                if (tab.posicaoValida(pos) && existeInimigo(pos))
+                {
+                    mat[pos.linha, pos.coluna] = true;
+                }
+
+                // #jogadaespecial en passant
+                if (posicao.linha == 3)
+                {
+                    Posicao esquerda = new Posicao(posicao.linha, posicao.coluna - 1);
+                    if (tab.posicaoValida(esquerda) && existeInimigo(esquerda) && tab.peca(esquerda) == partida.vulneravelEnPassant)
+                    {
+                        mat[esquerda.linha - 1, esquerda.coluna] = true;
+                    }
+                    Posicao direita = new Posicao(posicao.linha, posicao.coluna + 1);
+                    if (tab.posicaoValida(direita) && existeInimigo(direita) && tab.peca(direita) == partida.vulneravelEnPassant)
+                    {
+                        mat[direita.linha - 1, direita.coluna] = true;
+                    }
+                }
+            }
+            else
+            {
+                pos.definirValores(posicao.linha + 1, posicao.coluna);
+                if (tab.posicaoValida(pos) && livre(pos))
+                {
+                    mat[pos.linha, pos.coluna] = true;
+                }
+                pos.definirValores(posicao.linha + 2, posicao.coluna);
+                Posicao p2 = new Posicao(posicao.linha + 1, posicao.coluna);
+                if (tab.posicaoValida(p2) && livre(p2) && tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
+                {
+                    mat[pos.linha, pos.coluna] = true;
+                }
+                pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
+                if (tab.posicaoValida(pos) && existeInimigo(pos))
+                {
+                    mat[pos.linha, pos.coluna] = true;
+                }
+                pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
                 if (tab.posicaoValida(pos) && existeInimigo(pos))
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
                 //#jogadaespecial en passant
-                if (Posicao.linha == 4)
+                if (posicao.linha == 4)
                 {
-                    Posicao esquerda = new Posicao(Posicao.linha, Posicao.coluna - 1);
+                    Posicao esquerda = new Posicao(posicao.linha, posicao.coluna - 1);
                     if (tab.posicaoValida(esquerda) && existeInimigo(esquerda) && tab.peca(esquerda) == partida.vulneravelEnPassant)
                     {
                         mat[esquerda.linha + 1, esquerda.coluna] = true;
                     }
-                    Posicao direita = new Posicao(Posicao.linha, Posicao.coluna + 1);
+                    Posicao direita = new Posicao(posicao.linha, posicao.coluna + 1);
                     if (tab.posicaoValida(direita) && existeInimigo(direita) && tab.peca(direita) == partida.vulneravelEnPassant)
                     {
                         mat[direita.linha + 1, direita.coluna] = true;
