@@ -1,55 +1,56 @@
-Xadrez-Console Game
+## **Xadrez-Console Game**
 
 Este é um jogo de xadrez desenvolvido em C# que roda no console. O projeto implementa as regras oficiais do xadrez e permite que dois jogadores joguem entre si de forma interativa.
 
-Tecnologias Utilizadas
+**Tecnologias Utilizadas**
 
-Linguagem: C#
+- Linguagem: C#
 
-Ambiente: Console
+- Ambiente: Console
 
-Paradigma: Programação Orientada a Objetos (POO)
+- Paradigma: Programação Orientada a Objetos (POO)
 
-Funcionalidades
+## **Funcionalidades** 
 
-Tabuleiro exibido no console.
+- Tabuleiro exibido no console.
 
-Movimentação válida das peças seguindo as regras oficiais do xadrez.
+- Movimentação válida das peças seguindo as regras oficiais do xadrez.
 
-Detecção de xeque e xeque-mate.
+- Detecção de xeque e xeque-mate.
 
-Troca de turnos entre os jogadores.
+- Troca de turnos entre os jogadores.
 
-Indicação de jogadas inválidas.
+- Indicação de jogadas inválidas.
 
-Sistema de captura de peças.
+- Sistema de captura de peças.
 
-Como Executar
+## **Como Executar**
 
-Certifique-se de ter o .NET SDK instalado na sua máquina.
+- Certifique-se de ter o .NET SDK instalado na sua máquina.
 
-Clone este repositório:
+- Clone este repositório:
 
-git clone https://github.com/EduardoGiannini/Xadrez-console.git
+- git clone https://github.com/EduardoGiannini/Xadrez-console.git
 
-Acesse a pasta do projeto:
+- Acesse a pasta do projeto:
 
-cd Xadres-console
+- cd Xadres-console
 
-Compile e execute o programa:
+- Compile e execute o programa:
 
-dotnet run
+- dotnet run
 
-Controles do Jogo
+## **Controles do Jogo**
 
-O jogo solicitará a entrada do jogador informando a peça e o destino no formato colunaLinha -> colunaLinha (exemplo: e2 -> e4).
+- O jogo solicitará a entrada do jogador informando a peça e o destino no formato colunaLinha -> colunaLinha (exemplo: e2 -> e4).
 
-Caso a jogada seja inválida, o sistema informará e pedirá uma nova entrada.
+- Caso a jogada seja inválida, o sistema informará e pedirá uma nova entrada.
 
-O jogo continuará até que haja um xeque-mate ou empate.
+- O jogo continuará até que haja um xeque-mate ou empate.
 
-Licença
+## **Licença**
 
-Este projeto está licenciado sob a MIT License.
+- Este projeto está licenciado sob a MIT License.
 
-Desenvolvido por Eduardo Giannini.
+
+Desenvolvido por **Eduardo Giannini**.
