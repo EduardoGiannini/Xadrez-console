@@ -1,39 +1,55 @@
-Xadrez-Console
-Um jogo de xadrez simples para o console, desenvolvido em C#.
+Xadrez-Console Game
 
-📌 Sobre o Projeto
-ChessConsole é um jogo de xadrez baseado em terminal, desenvolvido para fins educativos e como prática de programação em C#. O jogo permite que dois jogadores se enfrentem no tabuleiro, seguindo as regras tradicionais do xadrez.
+Este é um jogo de xadrez desenvolvido em C# que roda no console. O projeto implementa as regras oficiais do xadrez e permite que dois jogadores joguem entre si de forma interativa.
 
-⚙️ Tecnologias Utilizadas
-C#
-.NET
-🎮 Funcionalidades
-✔️ Interface baseada em console
-✔️ Movimentação das peças conforme as regras do xadrez
-✔️ Detecção de xeque e xeque-mate
-✔️ Validação de jogadas ilegais
+Tecnologias Utilizadas
 
-📦 Instalação
-Clone o repositório:
-bash
-Copiar
-Editar
-git clone https://github.com/EduardoGiannini/Xadrez-console.git 
+Linguagem: C#
+
+Ambiente: Console
+
+Paradigma: Programação Orientada a Objetos (POO)
+
+Funcionalidades
+
+Tabuleiro exibido no console.
+
+Movimentação válida das peças seguindo as regras oficiais do xadrez.
+
+Detecção de xeque e xeque-mate.
+
+Troca de turnos entre os jogadores.
+
+Indicação de jogadas inválidas.
+
+Sistema de captura de peças.
+
+Como Executar
+
+Certifique-se de ter o .NET SDK instalado na sua máquina.
+
+Clone este repositório:
+
+git clone https://github.com/EduardoGiannini/Xadrez-console.git
+
 Acesse a pasta do projeto:
-bash
-Copiar
-Editar
-cd Xadrez-console 
-Compile e execute o jogo:
-bash
-Copiar
-Editar
-dotnet run  
-🕹️ Como Jogar
-O jogo exibe um tabuleiro no console.
-Os jogadores devem inserir as coordenadas da peça que desejam mover e o destino.
-O sistema valida a jogada e atualiza o tabuleiro.
-O jogo termina quando um dos reis fica em xeque-mate.
 
-📜 Licença
-Este projeto está sob a licença MIT.
+cd Xadres-console
+
+Compile e execute o programa:
+
+dotnet run
+
+Controles do Jogo
+
+O jogo solicitará a entrada do jogador informando a peça e o destino no formato colunaLinha -> colunaLinha (exemplo: e2 -> e4).
+
+Caso a jogada seja inválida, o sistema informará e pedirá uma nova entrada.
+
+O jogo continuará até que haja um xeque-mate ou empate.
+
+Licença
+
+Este projeto está licenciado sob a MIT License.
+
+Desenvolvido por Eduardo Giannini.
